@@ -24,10 +24,12 @@ public class SpeakersController {
     public Speaker get(@PathVariable Long id){
         return speakerRepository.getOne(id);
     }
+
     @PostMapping
     public  Speaker create(@RequestBody Speaker speaker){
         return speakerRepository.saveAndFlush(speaker);
     }
+
     @RequestMapping(value = "{id}",method = RequestMethod.DELETE)
     public void delete(@PathVariable Long id){
         //ALso need to check for children records before deleting.
